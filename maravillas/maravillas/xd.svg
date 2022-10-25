@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <ellipse style="stroke: rgb(220, 130, 23); fill: rgb(255, 135, 251);" cx="194.522" cy="113.764" rx="54.073" ry="54.073"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(72, 100, 235);" cx="292.486" cy="112.711" rx="57.233" ry="55.829"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(40, 239, 63);" cx="230.337" cy="210.323" rx="69.522" ry="60.042"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(219, 229, 23);" cx="241.222" cy="50.562" rx="43.89" ry="37.921"/>
+  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 40px; font-weight: 700; white-space: pre;" x="129.213" y="162.219">Four waves</text>
+</svg>

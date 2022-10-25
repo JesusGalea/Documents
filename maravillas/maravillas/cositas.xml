@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maravillas>
+  <maravilla>
+  <nombre>Muralla China</nombre>
+  <pais>China</pais>
+  </maravilla>
+ <maravilla>
+  <nombre>El Coliseo Romano</nombre>
+  <pais>Italia</pais>
+  </maravilla>
+ <maravilla>
+  <nombre>Chinchén Itzá</nombre>
+  <pais>México</pais>
+  </maravilla>
+ <maravilla>
+  <nombre>Machu Picchu</nombre>
+  <pais>Perú</pais>ss
+  </maravilla>
+ <maravilla>
+  <nombre>Palacio Taj Mahal</nombre>
+  <pais>India</pais>
+  </maravilla>
+ <maravilla>
+  <nombre>Cristo Redentor</nombre>
+  <pais>Brasil</pais>
+  </maravilla>
+ <maravilla>
+  <nombre>Petra</nombre>
+  <pais>Jordania</pais>
+ </maravilla>
+ </maravillas>
