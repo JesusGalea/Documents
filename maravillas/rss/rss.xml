@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="rss.xsl"?>
 <rss version ="2.0">
 
     <channel>
@@ -7,7 +8,7 @@
     <description> Un podcast sobre videojuegos y tecnologia </description>
     <copyright> CC4.0 - BY-SA</copyright>
     </channel>
-
+<noticias>
     <item>
         <title>Terraria el mejor juego de la historia</title>
 <link> https://store.steampowered.com/app/105600/Terraria/</link>
@@ -19,4 +20,18 @@
    <pubDate> 25/10/2022</pubDate>
    
 </item>
+
+<item>
+    <title>Polemica Bayonetta 3</title>
+<link> https://www.eurogamer.es/la-actriz-de-voz-de-bayonetta-se-desdice-y-confirma-la-cantidad-de-dinero-que-se-le-ofrecio-por-su-papel</link>
+<description> A poco de la fecha de salida del título la voz original de la protagonista expresó en redes sociales que rechazó la oferta porque el puesto estaba mal pagado
+</description>
+<author> Jesús Remoje </author>
+<pubDate> 26/10/2022</pubDate>
+
+</item>
+
+
+
+</noticias>
 </rss>
