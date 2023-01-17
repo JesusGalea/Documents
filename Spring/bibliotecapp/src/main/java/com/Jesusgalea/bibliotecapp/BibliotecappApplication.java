@@ -30,7 +30,7 @@ public class BibliotecappApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		guardarLibro();
+		
 		
 	}
 	
