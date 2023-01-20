@@ -13,7 +13,7 @@ import com.Jesusgalea.bibliotecapp.model.Categoria;
 import com.Jesusgalea.bibliotecapp.model.Libro;
 
 @Controller
-@RequestMapping("/home")
+
 public class HomeController {
 	
 	
@@ -37,21 +37,37 @@ public String mostrarDetalle(Model model) {
 @GetMapping("/tabla")
 public String mostrarTabla(Model model) {
 	List<Libro> lista = getLibros();
+	
 	model.addAttribute("libros", lista);
 	return "tabla";
 }
 
-private List getLibros() {
+public List<Libro> getLibros() {
 	List<Libro> libritos = new LinkedList<Libro>();
 	Libro l1 = new Libro();
+	l1.setId(1);
 	l1.setAutor("Sarita");
 	l1.setCategoria( new Categoria());
-	l1.setDescripcion("Sarita dime tu");
+	l1.setDescripcion("cuando da el sol se giran");
 	l1.setDestacado(1);
 	l1.setDisponibilidad("Disponible");
 	l1.setFecha(new Date());
-
+	l1.setImagen("girasoles.png");
+	l1.setPrecio(10.9);
+	l1.setTitulo("los girasole");
 	libritos.add(l1);
+	Libro l2 = new Libro();
+	l2.setId(2);
+	l2.setAutor("wolta");
+	l2.setCategoria( new Categoria());
+	l2.setDescripcion("pu yo dik owei wolta");
+	l2.setDestacado(1);
+	l2.setDisponibilidad("Disponible");
+	l2.setFecha(new Date());
+	l2.setImagen("mike.jpg");
+	l2.setPrecio(60.4);
+	l2.setTitulo("brikin ba");
+	libritos.add(l2);
 	return libritos;
 }
 }

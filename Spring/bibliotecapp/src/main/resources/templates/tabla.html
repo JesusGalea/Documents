@@ -23,16 +23,19 @@
 	  
 	  <tr th:each="libro : ${libros} ">
 	  	<td>
-	  		<img th:src="@{/images/{img}( img=${libro.imagen})}" width=50 height=50>
+	  		<img th:src="@{/images/{img}( img=${libro.imagen})}" width=100 height=100>
 	  	</td>
-	    <td></td>
-	    <td></td>
-	    <td></td>
-	    <td></td>
-	    <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+	    <td th:text="${libro.id}"></td>
+	    <td th:text="${libro.titulo}"></td>
+	    <td th:text="${libro.fecha}"></td>
+	    <td th:text="${libro.precio}"></td>
+	    <td th:text="${libro.autor}"></td>
+        <td>
+        <span th:if="${libro.destacado == 1}"> <button> si</button></span>
+         <span th:unless="${libro.destacado == 1}"> <button> no</button></span>
+        </td>
+        <td th:title="${libro.descripcion}"> <button>Descripcion</button></td>
+        <td> <button>eliminar</button></td>
 	  
 	  </tr>
 	 
