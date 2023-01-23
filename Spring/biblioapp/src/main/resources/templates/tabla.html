@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title >Listado de libros</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="fragments/menu.html :: menu-principal"></header>
+ <main role="main">
+<h1 class="text-primary"><img th:src="@{/images/logo.png}" width=100 height=100>Lista de Libros</h1>
+ <table class="table table-striped table-bordered table-hover">
+	  <tr>
+	  	<th>Imagen</th>
+	    <th>Id</th>
+	    <th>Titulo</th>
+	    <th>Fecha de Publicacion</th>
+	    <th>Precio</th>
+	    <th>Autor</th>	  
+	    <th>Destacado</th> 
+	    <th>Descripcion</th>
+	    <th>Eliminar</th>
+	  </tr>
+	  
+	  <tr th:each="libro : ${libros} ">
+	  	<td>
+	  		<img th:src="@{/images/{img}( img=${libro.imagen})}" width=100 height=100>
+	  	</td>
+	    <td th:text="${libro.id}"></td>
+	    <td th:text="${libro.titulo}"></td>
+	    <td th:text="${libro.fecha}"></td>
+	    <td th:text="${libro.precio}"></td>
+	    <td th:text="${libro.autor}"></td>
+        <td>
+        <span th:if="${libro.destacado == 1}"> <button> si</button></span>
+         <span th:unless="${libro.destacado == 1}"> <button> no</button></span>
+        </td>
+        <td th:title="${libro.descripcion}"> <button>Descripcion</button></td>
+        <td> <button>eliminar</button></td>
+	  
+	  </tr>
+	 
+	</table> 
+	</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script></body>
+</html>

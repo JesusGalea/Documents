@@ -1,0 +1,16 @@
+<nav th:fragment="menu-principal" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<a class="navbar-brand" href="#" style="padding-left: 1%;">Biblioteca App</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" ariacontrols="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navbarsExampleDefault" style="justify-content: space-between; paddingright: 1%;">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item"><a class="nav-link" th:href="@{/categorias/listLibros}">Libros</a></li>
+<li class="nav-item"><a class="nav-link" th:href="@{/categorias/listCategorias}">Categorías</a></li>
+</ul>
+<div>
+<a class="btn btn-primary" href="#">Iniciar sesión</a> &nbsp;
+<a class="btn btn-primary" href="#">Registrarse</a> &nbsp;
+<a class="btn btn-primary" href="#">Salir</a>
+</div>
+</div>
+</nav>
