@@ -26,7 +26,9 @@ public class CategoriaController {
 	    }
 
 	@GetMapping("/formCategoria")
-		public String mostrarForm() {
+		public String mostrarForm(Categoria categoria) {
 		return "formCategoria";
 	}
+	
+	
 }
