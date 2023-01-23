@@ -18,7 +18,7 @@ import com.JesusGalea.repositories.LibrosRepository;
 public class HomeController {
 @GetMapping("/inicio")
 public String mostrarHome(Model model) {
-	model.addAttribute("mensaje", "Dani tus muertos");
+	model.addAttribute("mensaje", "uwu");
 	return "home";
 }
 @GetMapping("/detalle")

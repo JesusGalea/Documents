@@ -10,23 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.JesusGalea.model.Categoria;
+import com.JesusGalea.model.Libro;
+import com.JesusGalea.repositories.LibrosRepository;
 import com.JesusGalea.services.ICategoriaService;
+import com.JesusGalea.services.ILibroService;
 
 @Controller
-@RequestMapping(value="/categorias")
-public class CategoriaController {
+@RequestMapping(value="/libros")
+public class LibroController {
 	@Autowired
-	private ICategoriaService serviceCategoria;
+	private ILibroService serviceLibro;
 	
-	@GetMapping("/listCategorias")
-	    public String mostrarIndex(Model model) {
-	        List<Categoria> categoriasList = serviceCategoria.buscarTodas();
-	        model.addAttribute("categorias", categoriasList);
-	        return "listCategorias";
-	    }
-
-	@GetMapping("/formCategoria")
-		public String mostrarForm() {
-		return "formCategoria";
+		
+	@Autowired
+	private LibrosRepository librosRepository;
+	@GetMapping("/listLibros")
+	public String mostrarTabla(Model model) {
+		List<Libro> lista = librosRepository.findAll();
+		model.addAttribute("libro", lista);
+		return "listLibros";
 	}
+
+
 }
