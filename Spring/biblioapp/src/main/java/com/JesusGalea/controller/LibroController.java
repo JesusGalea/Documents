@@ -22,12 +22,11 @@ public class LibroController {
 	private ILibroService serviceLibro;
 	
 		
-	@Autowired
-	private LibrosRepository librosRepository;
+
 	@GetMapping("/listLibros")
 	public String mostrarTabla(Model model) {
-		List<Libro> lista = librosRepository.findAll();
-		model.addAttribute("libro", lista);
+		List<Libro> lista = serviceLibro.buscarTodas();
+		model.addAttribute("libros", lista);
 		return "listLibros";
 	}
 
