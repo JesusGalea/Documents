@@ -32,14 +32,10 @@ public class LibroService implements ILibroService {
         libroRepo.deleteById(id);
     }
 
-   
-  
-
     @Override
     public Page<Libro> buscarTodas(org.springframework.data.domain.Pageable page) {
         return libroRepo.findAll(page);
     }
-
 
 	@Override
 	public Libro findLibroById(int id) {

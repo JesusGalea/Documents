@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,5 +31,15 @@ public class LibroController {
 		return "listLibros";
 	}
 
+	@GetMapping("/formLibro")
+	public String mostrarForm(Libro libro) {
+		return "formLibro";
+	}
+	
+	@PostMapping("/save")
+	public String guardar(Libro libro,Model model) {
+	serviceLibro.guardarLibro(libro);
+	return "redirect:/libros/listLibros";
+	}
 
 }

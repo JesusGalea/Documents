@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.JesusGalea.model.Categoria;
+import com.JesusGalea.model.Libro;
 import com.JesusGalea.services.ICategoriaService;
+import com.JesusGalea.services.ILibroService;
 
 @Controller
 @RequestMapping(value="/categorias")
 public class CategoriaController {
 	@Autowired
 	private ICategoriaService serviceCategoria;
+	
 	
 	@GetMapping("/listCategorias")
 	    public String mostrarIndex(Model model) {
@@ -35,5 +38,7 @@ public class CategoriaController {
 	serviceCategoria.guardarCategoria(categoria);
 	return "redirect:/categorias/listCategorias";
 	}
+	
+
 
 }
