@@ -27,11 +27,7 @@ public class LibroService implements ILibroService {
         libroRepo.save(libro);
     }
 
-    @Override
-    public void deleteById(int id) {
-        libroRepo.deleteById(id);
-    }
-
+    
     @Override
     public Page<Libro> buscarTodas(org.springframework.data.domain.Pageable page) {
         return libroRepo.findAll(page);
@@ -41,5 +37,12 @@ public class LibroService implements ILibroService {
 	public Libro findLibroById(int id) {
 		 Libro libro = libroRepo.findLibroById(id);
 	        return libro;
+	}
+
+
+	@Override
+	public void deleteById(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 }

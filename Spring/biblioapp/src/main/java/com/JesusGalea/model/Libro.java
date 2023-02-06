@@ -2,13 +2,12 @@ package com.JesusGalea.model;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,9 +24,8 @@ public class Libro {
 	private Integer destacado;
 	private String imagen;
 	private String descripcion;
-	@Column(insertable=false, updatable=false)
-	private Integer idCategoria;
-	@ManyToOne
+	
+	@OneToOne
 	@JoinColumn(name="idCategoria")
 	private Categoria categoria;
 	public Libro() {
@@ -39,12 +37,7 @@ public class Libro {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public int getCategoria() {
-		return idCategoria;
-	}
-	public void setCategoria(int categoria) {
-		this.idCategoria = categoria;
-	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -97,6 +90,6 @@ public class Libro {
 	public String toString() {
 		return "Libros [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", fecha=" + fecha + ", precio="
 				+ precio + ", disponibilidad=" + disponibilidad + ", destacado=" + destacado + ", imagen=" + imagen
-				+ ", descripcion=" + descripcion + ", categoria= " + idCategoria + "]";
+				+ ", descripcion=" + descripcion + ", categoria= " +  "]";
 	}
 }

@@ -15,30 +15,33 @@ import com.JesusGalea.services.ICategoriaService;
 import com.JesusGalea.services.ILibroService;
 
 @Controller
-@RequestMapping(value="/categorias")
+@RequestMapping(value = "/categorias")
 public class CategoriaController {
 	@Autowired
 	private ICategoriaService serviceCategoria;
-	
-	
+
 	@GetMapping("/listCategorias")
-	    public String mostrarIndex(Model model) {
-	        List<Categoria> categoriasList = serviceCategoria.buscarTodas();
-	        model.addAttribute("categorias", categoriasList);
-	        return "listCategorias";
-	    }
+	public String mostrarIndex(Model model) {
+		List<Categoria> categoriasList = serviceCategoria.buscarTodas();
+		model.addAttribute("categorias", categoriasList);
+		return "listCategorias";
+	}
 
 	@GetMapping("/formCategoria")
-		public String mostrarForm(Categoria categoria) {
+	public String mostrarForm(Categoria categoria) {
 		return "formCategoria";
 	}
-	
-	@PostMapping("/save")
-	public String guardar(Categoria categoria,Model model) {
-	serviceCategoria.guardarCategoria(categoria);
-	return "redirect:/categorias/listCategorias";
-	}
-	
 
+	@PostMapping("/save")
+	public String guardar(Categoria categoria, Model model) {
+		serviceCategoria.guardarCategoria(categoria);
+		return "redirect:/categorias/listCategorias";
+	}
+
+	@PostMapping("/delete")
+	public String borrar(Categoria categoria, Model model) {
+		serviceCategoria.deleteById(categoria.getId());
+		return "redirect:/categorias/listCategorias";
+	}
 
 }

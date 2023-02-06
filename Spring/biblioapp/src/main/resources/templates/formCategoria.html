@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Biblioteca App | CreaciÃ³n de Ofertas de Trabajo</title>
+<!-- Bootstrap core CSS -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="/bootstrap/css/jumbotron.css" rel="stylesheet">
+<link href="/bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+	rel="stylesheet">
 </head>
 <body>
+	<header th:insert="fragments/menu.html :: menu-principal"></header>
+	<main role="main">
+		<hr>
+		<div class="container">
 
-<main role="main">
-        <hr>
-        <div class="container">
+			<div class="card">
+				<h4 class="card-header">
+					<strong>Datos de la categorÃ­a</strong>
+				</h4>
+				<div class="card-body">
+					<form method="post" th:object="${categoria}"
+						th:action="@{/categorias/save}">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="nombre">Nombre</label> <input type="hidden"
+										th:field="*{id}"> <input type="text"
+										th:field="*{nombre}" class="form-control" id="nombre"
+										name="nombre" placeholder="Escriba el nombre de la categoria"
+										required="required">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="descripcion">DescripciÃ³n</label>
+									<textarea class="form-control" name="descripcion"
+										th:field="*{descripcion}" id="descripcion" rows="2"></textarea>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<button type="submit" title="Guardar el registro."
+							class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /container -->
 
-            <div class="card">
-                <h4 class="card-header">
-                    <strong>Datos de la categoría</strong>
-                </h4>
-                <div class="card-body">
-                    <form  method="post" th:object="${categoria}" th:action="@{/categorias/save}">                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="hidden"  th:field="*{id}">
-                                    <input type="text" th:field="*{nombre}"
-                                        class="form-control" id="nombre" name="nombre"
-                                        placeholder="Escriba el nombre de la categoria"
-                                        required="required">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="descripcion">Descripción</label>
-                                    <textarea class="form-control" name="descripcion"  th:field="*{descripcion}"
-                                        id="descripcion" rows="2" ></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <button type="submit" title="Guardar el registro."
-                            class="btn btn-primary">Guardar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- /container -->
-
-    </main>
+	</main>
 
 </body>
 </html>

@@ -1,18 +1,21 @@
 package com.JesusGalea.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.JesusGalea.model.Categoria;
 import com.JesusGalea.model.Libro;
-import com.JesusGalea.repositories.LibrosRepository;
 import com.JesusGalea.services.ICategoriaService;
 import com.JesusGalea.services.ILibroService;
 
@@ -21,8 +24,22 @@ import com.JesusGalea.services.ILibroService;
 public class LibroController {
 	@Autowired
 	private ILibroService serviceLibro;
+	@Autowired
+	private ICategoriaService serviceCategoria;
 	
-		
+	
+	
+	@ModelAttribute
+	public void setGenericos(Model model) {
+	model.addAttribute("categorias", serviceCategoria.buscarTodas());
+	}
+	
+	@GetMapping("/create")
+	public String crear (Libro libro,Model model) {
+		model.addAttribute("categorias", serviceCategoria.buscarTodas());
+		return "formLibro";
+	}
+	
 
 	@GetMapping("/listLibros")
 	public String mostrarTabla(Model model) {
@@ -31,10 +48,7 @@ public class LibroController {
 		return "listLibros";
 	}
 
-	@GetMapping("/formLibro")
-	public String mostrarForm(Libro libro) {
-		return "formLibro";
-	}
+	
 	
 	@PostMapping("/save")
 	public String guardar(Libro libro,Model model) {
@@ -42,4 +56,9 @@ public class LibroController {
 	return "redirect:/libros/listLibros";
 	}
 
+	@InitBinder
+    public void initBinder(WebDataBinder webDataBinder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
 }
