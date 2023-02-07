@@ -13,22 +13,21 @@ import com.JesusGalea.model.Categoria;
 import com.JesusGalea.model.Libro;
 import com.JesusGalea.repositories.CategoriasRepository;
 import com.JesusGalea.repositories.LibrosRepository;
+import com.JesusGalea.services.ILibroService;
 
 @Controller
 public class HomeController {
-@GetMapping("/inicio")
+	
+	@Autowired
+	private ILibroService serviceLibro;
+	
+@GetMapping("/")
 public String mostrarHome(Model model) {
-	model.addAttribute("mensaje", "uwu");
+	List<Libro> librosList = (List<Libro>) serviceLibro.findLibroByDestacado(1);
+	model.addAttribute("libros", librosList);
 	return "home";
 }
-@GetMapping("/detalle")
-public String mostrarDetalle(Model model) {
-	List<String> lista = new LinkedList<>();
-	lista.add("Dani");
-	lista.add("ere");
-	lista.add("luis");
-	model.addAttribute("libros", lista);
-	return "detalle";
-}
+
+
 
 }

@@ -14,4 +14,5 @@ public interface ILibroService {
     void deleteById(int id);
     Libro findLibroById(int id);
     Page<Libro> buscarTodas(Pageable page);
+	List <Libro> findLibroByDestacado(int dest);
 }

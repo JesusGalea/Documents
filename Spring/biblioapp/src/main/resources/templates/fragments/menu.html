@@ -1,5 +1,5 @@
 <nav th:fragment="menu-principal" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<a class="navbar-brand" href="#" style="padding-left: 1%;">Biblioteca App</a>
+<a class="navbar-brand" th:href="@{/}" style="padding-left: 1%;">Biblioteca App</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" ariacontrols="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="justify-content: space-between; paddingright: 1%;">
@@ -9,7 +9,6 @@
 </ul>
 <div>
 <a class="btn btn-primary" href="#">Iniciar sesión</a> &nbsp;
-<a class="btn btn-primary" href="#">Registrarse</a> &nbsp;
 <a class="btn btn-primary"  th:href="@{/logout}">Salir</a>
 </div>
 </div>

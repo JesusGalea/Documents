@@ -8,11 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.JesusGalea.model.Categoria;
-import com.JesusGalea.model.Libro;
 import com.JesusGalea.services.ICategoriaService;
-import com.JesusGalea.services.ILibroService;
 
 @Controller
 @RequestMapping(value = "/categorias")
@@ -38,10 +37,11 @@ public class CategoriaController {
 		return "redirect:/categorias/listCategorias";
 	}
 
-	@PostMapping("/delete")
-	public String borrar(Categoria categoria, Model model) {
-		serviceCategoria.deleteById(categoria.getId());
+	@RequestMapping (value="/delete")
+	public String borrar(@RequestParam("id") int id) {
+		serviceCategoria.deleteById(id);
 		return "redirect:/categorias/listCategorias";
 	}
 
+	
 }

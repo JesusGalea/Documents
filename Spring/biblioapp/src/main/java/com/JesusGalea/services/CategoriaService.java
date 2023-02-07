@@ -1,11 +1,11 @@
 package com.JesusGalea.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.JesusGalea.model.Categoria;
@@ -28,8 +28,16 @@ public class CategoriaService implements ICategoriaService {
 
     @Override
     public void deleteById(int id) {
-        categoriaRepo.deleteById(id);
+       
     }
+    
+//    public void modificarCategori() {
+//    	Optional <Categoria> optional = categoriaRepo.findById(9);
+//    	if(optional.isPresent()== true) {
+//    		Categoria catTemp = optional.get();
+//    		catTemp.setNombre();
+//    	}
+//    }
 
     @Override
     public Categoria findCategoriaById(int id) {
@@ -42,4 +50,6 @@ public class CategoriaService implements ICategoriaService {
     public Page<Categoria> buscarTodas(org.springframework.data.domain.Pageable page) {
         return categoriaRepo.findAll(page);
     }
+    
+    
 }

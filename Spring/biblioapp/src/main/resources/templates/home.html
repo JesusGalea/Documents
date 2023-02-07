@@ -1,10 +1,100 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+
+<title>Bibliotecapp| Listado de Categorías</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	rel="stylesheet">
+
 </head>
+
 <body>
-<h1 th:text="${mensaje}">kek</h1>
+	<header th:insert="fragments/menu.html :: menu-principal"></header>
+	<main role="main">
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+			<div class="container">
+				<h3>Encuentra el libro que andas buscando.</h3>
+				Puedes buscar por titulo y categoría.
+				<form class="form-inline">
+					<input type="text" class="form-control mb-3"
+						id="exampleFormControlInput1" placeholder="Escriba una búsqueda">&nbsp;
+					<select class="custom-select custom-select mb-3">
+						<option selected="">Seleccione una categoría</option>
+						<option value="1">Terror</option>
+						<option value="2">Infantil</option>
+						<option value="3">Literario</option>
+						<option value="4">Novel</option>
+					</select>&nbsp;
+					<button type="submit" class="btn btn-primary mb-3">Buscar</button>
+				</form>
+			</div>
+		</div>
+		<hr>
+
+		<div class="container">
+			<h2 class="font-weight-bold text-center text-capitalize">DESTACADOS</h2>
+			<hr>
+			<div class="row">
+				<div class="col-md-3">
+					<table class="table table-hover">
+						<thead class="thead-light">
+							<tr>
+								<th scope="col">Imagen</th>
+								<th scope="col">Id</th>
+								<th scope="col">Titulo</th>
+								<th scope="col">Fecha de publicación</th>
+								<th scope="col">Precio</th>
+								<th scope="col">Autor</th>
+								<th scope="col">Descripción</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							<tr th:each="libro : ${libros}">
+								<td><img th:src="@{/images/{img}( img=${libro.imagen})}"
+									width=50 height=50></td>
+								<td th:text="${libro.id}"></td>
+								<td th:text="${libro.titulo}"></td>
+								<td th:text="${libro.fecha}"></td>
+								<td th:text="${libro.precio}"></td>
+								<td th:text="${libro.autor}"></td>
+								<td th:text="${libro.descripcion}"></td>
+
+
+							</tr>
+
+
+
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-9"></div>
+			</div>
+
+			<hr>
+		</div>
+		<!-- /container -->
+
+	</main>
+
+
+
 </body>
 </html>

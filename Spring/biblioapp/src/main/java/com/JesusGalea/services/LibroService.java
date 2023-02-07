@@ -39,10 +39,15 @@ public class LibroService implements ILibroService {
 	        return libro;
 	}
 
+	@Override
+	public List<Libro> findLibroByDestacado(int dest) {
+		 List <Libro> libro = libroRepo.findLibroByDestacado(dest);
+	        return libro;
+	}
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
+		 libroRepo.deleteById(id);
 		
 	}
 }

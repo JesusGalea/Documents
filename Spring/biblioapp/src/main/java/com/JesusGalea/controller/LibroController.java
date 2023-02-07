@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.JesusGalea.model.Libro;
 import com.JesusGalea.services.ICategoriaService;
@@ -54,6 +55,12 @@ public class LibroController {
 	public String guardar(Libro libro,Model model) {
 	serviceLibro.guardarLibro(libro);
 	return "redirect:/libros/listLibros";
+	}
+	
+	@RequestMapping (value="/delete")
+	public String borrar(@RequestParam("id") int id) {
+		serviceLibro.deleteById(id);
+		return "redirect:/libros/listLibros";
 	}
 
 	@InitBinder
